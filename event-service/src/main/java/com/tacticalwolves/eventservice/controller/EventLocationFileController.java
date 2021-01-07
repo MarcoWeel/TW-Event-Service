@@ -25,7 +25,7 @@ public class EventLocationFileController {
         @Autowired
         private MinioService minioService;
         @RolesAllowed({"ADMIN", "MEMBER"})
-        @GetMapping("/files")
+        @GetMapping("/events")
         public List<Item> testMinio() throws MinioException {
                 return minioService.list();
         }
