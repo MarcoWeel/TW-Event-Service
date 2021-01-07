@@ -1,8 +1,10 @@
 package com.tacticalwolves.eventservice.repository;
 
-import com.tacticalwolves.eventservice.entity.Event;
-import com.tacticalwolves.eventservice.entity.EventImage;
+import com.tacticalwolves.eventservice.entity.EventLocation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EventImageRepository extends JpaRepository<EventImage,Integer> {
+import java.util.List;
+
+public interface EventImageRepository extends JpaRepository<EventLocation,Integer> {
+    List<EventLocation> findByName(String name);
 }

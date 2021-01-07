@@ -2,10 +2,6 @@ package com.tacticalwolves.eventservice.controller;
 
 import com.jlefebure.spring.boot.minio.MinioException;
 import com.jlefebure.spring.boot.minio.MinioService;
-import com.tacticalwolves.eventservice.entity.Event;
-import com.tacticalwolves.eventservice.entity.EventImage;
-import com.tacticalwolves.eventservice.service.EventImageService;
-import com.tacticalwolves.eventservice.service.EventService;
 import io.minio.messages.Item;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +18,9 @@ import java.nio.file.Path;
 import java.util.List;
 
 @RestController
-@RequestMapping("/event")
-public class FileController {
+@RequestMapping("/events")
+@CrossOrigin
+public class EventLocationFileController {
 
         @Autowired
         private MinioService minioService;

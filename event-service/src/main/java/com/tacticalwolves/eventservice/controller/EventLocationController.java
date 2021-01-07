@@ -1,45 +1,45 @@
 package com.tacticalwolves.eventservice.controller;
 
-import com.tacticalwolves.eventservice.entity.Event;
-import com.tacticalwolves.eventservice.entity.Provider;
+import com.tacticalwolves.eventservice.entity.EventLocation;
 import com.tacticalwolves.eventservice.proxies.ProviderProxy;
-import com.tacticalwolves.eventservice.service.EventService;
+import com.tacticalwolves.eventservice.service.EventLocationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/events")
 @CrossOrigin
-public class EventController {
+public class EventLocationController {
     @Autowired
-    private EventService service;
+    private EventLocationService service;
 
     @Autowired
     private ProviderProxy providerProxy;
 
     @RolesAllowed({"ADMIN", "MEMBER"})
-    @PostMapping("")
-    public Event addEvent(@RequestBody Event event){return service.SaveEvent(event);}
-
-    @GetMapping("/{Id}")
-    public Event findEventById(@PathVariable int Id){return service.GetEventById(Id);}
-
-    @GetMapping("")
-    public List<Event> findAllEvents(){return service.GetEvents();}
+    @PostMapping("/location")
+    public EventLocation addEventLocation(@RequestBody EventLocation eventLocation) { return service.SaveEventLocation(eventLocation);}
 
     @RolesAllowed({"ADMIN", "MEMBER"})
-    @PutMapping("")
-    public Event updateEvent(@RequestBody Event event){return service.UpdateEvent(event);}
+    @GetMapping("/location/{Id}")
+    public EventLocation findEventLocationById(@PathVariable int Id){return service.GetEventLocationById(Id);}
 
     @RolesAllowed({"ADMIN", "MEMBER"})
-    @DeleteMapping("/{Id}")
-    public String deleteEvent(@PathVariable int Id){return service.DeleteEventById(Id);}
+    @GetMapping("/location")
+    public List<EventLocation> findAllEventLocations(){return service.GetEventLocations();}
+
+    @RolesAllowed({"ADMIN", "MEMBER"})
+    @PutMapping("/location")
+    public EventLocation updateEventLocation(@RequestBody EventLocation event){return service.UpdateEventLocation(event);}
+
+    @RolesAllowed({"ADMIN", "MEMBER"})
+    @DeleteMapping("/location")
+    public String deleteLocation(@PathVariable int Id){return service.DeleteEventLocationById(Id);}
 
 //    @GetMapping("/{id}")
 //    public ResponseEntity<Event> getDetails(@PathVariable String id) {

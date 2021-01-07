@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -19,10 +20,9 @@ public class Event {
     @Id
     @GeneratedValue
     private int Id;
-    private int User_Id;
-    private int EventImageId;
     private String Name;
     private String Location;
-    //private DateTime Date;
+    private String LocationUrl;
+    private Date dateTime;
     
 }

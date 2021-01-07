@@ -8,16 +8,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.File;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "EventImage")
-public class EventImage {
+@Table(name = "EventLocation")
+public class EventLocation {
     @Id
     @GeneratedValue
     private int Id;
-    //aanpassen zodra amazon s3 opgezet is
-    String FileLocation;
+    private String name;
+    private String FileLocation;
 }

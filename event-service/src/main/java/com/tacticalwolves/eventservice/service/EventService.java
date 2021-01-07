@@ -3,6 +3,7 @@ package com.tacticalwolves.eventservice.service;
 import com.tacticalwolves.eventservice.entity.Event;
 import com.tacticalwolves.eventservice.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,12 +13,13 @@ public class EventService {
     @Autowired
     private EventRepository repository;
 
-    public Event SaveEvent(Event event){
-        return repository.save(event);
-    }
+    @Autowired
+    private EventLocationService service;
+
+    public Event SaveEvent(Event event){ return repository.save(event); }
 
     public List<Event> GetEvents(){
-        return repository.findAll();
+        return repository.findAll(Sort.by(Sort.Direction.DESC, "DateTime"));
     }
 
     public Event GetEventById(int Id){
@@ -32,7 +34,6 @@ public class EventService {
     public Event UpdateEvent(Event event){
         Event ExistingEvent = GetEventById(event.getId());
         ExistingEvent.setName((event.getName()));
-        ExistingEvent.setEventImageId(event.getEventImageId());
         ExistingEvent.setLocation(event.getLocation());
         return repository.save(ExistingEvent);
     }
