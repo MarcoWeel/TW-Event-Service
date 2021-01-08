@@ -24,12 +24,10 @@ public class EventLocationController {
     @RolesAllowed({"ADMIN", "MEMBER"})
     @PostMapping("/location")
     public EventLocation addEventLocation(@RequestBody EventLocation eventLocation) { return service.SaveEventLocation(eventLocation);}
-
-    @RolesAllowed({"ADMIN", "MEMBER"})
+    
     @GetMapping("/location/{Id}")
     public EventLocation findEventLocationById(@PathVariable int Id){return service.GetEventLocationById(Id);}
 
-    @RolesAllowed({"ADMIN", "MEMBER"})
     @GetMapping("/location")
     public List<EventLocation> findAllEventLocations(){return service.GetEventLocations();}
 
