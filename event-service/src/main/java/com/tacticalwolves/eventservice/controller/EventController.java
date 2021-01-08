@@ -24,17 +24,17 @@ public class EventController {
     private ProviderProxy providerProxy;
 
     @RolesAllowed({"ADMIN", "MEMBER"})
-    @PostMapping("")
+    @PostMapping("/")
     public Event addEvent(@RequestBody Event event){return service.SaveEvent(event);}
 
     @GetMapping("/{Id}")
     public Event findEventById(@PathVariable int Id){return service.GetEventById(Id);}
 
-    @GetMapping("")
+    @GetMapping("/")
     public List<Event> findAllEvents(){return service.GetEvents();}
 
     @RolesAllowed({"ADMIN", "MEMBER"})
-    @PutMapping("")
+    @PutMapping("/")
     public Event updateEvent(@RequestBody Event event){return service.UpdateEvent(event);}
 
     @RolesAllowed({"ADMIN", "MEMBER"})
