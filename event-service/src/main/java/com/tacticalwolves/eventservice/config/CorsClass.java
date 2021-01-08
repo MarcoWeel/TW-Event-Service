@@ -19,7 +19,7 @@ public class CorsClass extends WebMvcConfigurerAdapter {
     public void addCorsMappings(CorsRegistry registry) {
         String origins = environment.getProperty("origins");
         registry.addMapping("/**")
-                .allowedOrigins("http://84.86.167.197","http://tw--react.herokuapp.com")
+                .allowedOrigins("*")
                 .allowedMethods("*")
                 .allowedHeaders("*")
                 .allowCredentials(false);
