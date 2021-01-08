@@ -8,20 +8,20 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@Configuration
-@EnableWebMvc
+//@Configuration
+//@EnableWebMvc
 public class CorsClass extends WebMvcConfigurerAdapter {
 
-    @Autowired
-    private Environment environment;
-
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        String origins = environment.getProperty("origins");
-        registry.addMapping("/**")
-                .allowedOrigins("*")
-                .allowedMethods("*")
-                .allowedHeaders("*")
-                .allowCredentials(false);
-    }
+//    @Autowired
+//    private Environment environment;
+//
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        String origins = environment.getProperty("origins");
+//        registry.addMapping("/**")
+//                .allowedOrigins("*")
+//                .allowedMethods("*")
+//                .allowedHeaders("*")
+//                .allowCredentials(false);
+//    }
 }
