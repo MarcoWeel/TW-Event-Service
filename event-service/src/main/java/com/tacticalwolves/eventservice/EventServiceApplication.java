@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients("com.tacticalwolves.eventservice.proxies")
+//@EnableFeignClients("com.tacticalwolves.eventservice.proxies")
 public class EventServiceApplication {
 
     public static void main(String[] args) {

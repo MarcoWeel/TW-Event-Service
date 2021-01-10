@@ -1,13 +1,11 @@
 package com.tacticalwolves.eventservice.controller;
 
 import com.tacticalwolves.eventservice.entity.EventLocation;
-import com.tacticalwolves.eventservice.proxies.ProviderProxy;
 import com.tacticalwolves.eventservice.service.EventLocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
-import java.util.Date;
 import java.util.List;
 
 
@@ -17,9 +15,6 @@ import java.util.List;
 public class EventLocationController {
     @Autowired
     private EventLocationService service;
-
-    @Autowired
-    private ProviderProxy providerProxy;
 
     @RolesAllowed({"ADMIN", "MEMBER"})
     @PostMapping("/location")
@@ -38,16 +33,4 @@ public class EventLocationController {
     @RolesAllowed({"ADMIN", "MEMBER"})
     @DeleteMapping("/location")
     public String deleteLocation(@PathVariable int Id){return service.DeleteEventLocationById(Id);}
-
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Event> getDetails(@PathVariable String id) {
-//        Optional<Event> event$ = products.stream().filter(p -> id.equals(p.getId())).findFirst();
-//        if (!event$.isPresent()) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//        Event event = event$.get();
-//        Provider provider = providerProxy.getDetails(event.getProviderId());
-//        product.setProvider(provider);
-//        return new ResponseEntity<Product>(product, HttpStatus.ACCEPTED);
-//    }
 }

@@ -24,5 +24,4 @@ public class Event {
     private String Location;
     private String LocationUrl;
     private Date dateTime;
-    
 }
